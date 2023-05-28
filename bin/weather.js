@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable */
 
 import { fileURLToPath } from "node:url";
 import path from "node:path";

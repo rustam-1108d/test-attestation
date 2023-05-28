@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { beforeEach, test, expect } from '@jest/globals';
 
 import { execFileSync } from 'child_process';

@@ -1,8 +1,7 @@
-import _ from 'lodash'
+import _ from 'lodash';
 
-export default function solution(content){
+export default function solution(content) {
   // BEGIN
   console.log(content);
   // END
-
 }
