@@ -85,5 +85,24 @@ export default function solution(content) {
 
   console.log(`HottestDay: ${hottestRow[0]} ${hottestRow[7]}`);
 
+  // step 5
+  const sortedByCity = _.groupBy(dataTable, (row) => row[7]);
+  // console.log(obj);
+  const citiesMeanTemp = _.map(sortedByCity, (rows, city) => {
+  //   const res1 = rows.map((element) => Number(element[1]))
+  //   const meanTemperature = _.mean(res1)
+    const sumMeanTemp = rows.reduce((acc, row) => {
+      const newAcc = acc + Number(row[1]);
+      return newAcc;
+    }, 0);
+
+    const meanTemperature = sumMeanTemp / rows.length;
+    return [meanTemperature, city];
+  });
+  // console.log(citiesMeanTemp);
+
+  const hottestCity = _.max(citiesMeanTemp, (row) => row[0]);
+  console.log(`HottestCity: ${hottestCity[1]}`);
+
   // END
 }
