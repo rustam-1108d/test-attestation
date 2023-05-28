@@ -24,12 +24,12 @@ export default function solution(content) {
   const splitRows = (row) => row.split(',');
 
   // DATA TO USE
-  const dataCells = dataRows.map(splitRows);
-  // console.log(dataCells);
-  // console.log(dataCells[0][7]);
+  const dataTable = dataRows.map(splitRows);
+  // console.log(dataTable);
+  // console.log(dataTable[0][7]);
 
   const extractCity = (row) => row[7];
-  const citiesColumn = dataCells.map(extractCity);
+  const citiesColumn = dataTable.map(extractCity);
   // console.log(citiesColumn);
 
   const uniqueCities = [];
@@ -44,9 +44,9 @@ export default function solution(content) {
   console.log(`Cities: ${uniqueCitiesSorted.join(', ')}`);
 
   // step 3
-  // console.log(dataCells[0][3]);
+  // console.log(dataTable[0][3]);
   const extractHumidity = (row) => row[3];
-  const humidityColumn = dataCells.map(extractHumidity);
+  const humidityColumn = dataTable.map(extractHumidity);
   // console.log(humidityColumn);
 
   let minHumidity = humidityColumn[0];
@@ -70,6 +70,20 @@ export default function solution(content) {
   console.log(`Humidity: Min: ${minHumidity}, Max: ${maxHumidity}`);
 
   // step 4
+  // console.log(dataTable[0][0]);
+  // console.log(dataTable[0][1]);
+  // console.log(dataTable[0][7]);
+
+  let hottestRow = dataTable[0];
+  // console.log(hottestRow);
+  for (const row of dataTable) {
+    if (row[1] > hottestRow[1]) {
+      hottestRow = row;
+    }
+  }
+  // console.log(hottestRow);
+
+  console.log(`HottestDay: ${hottestRow[0]} ${hottestRow[7]}`);
 
   // END
 }
